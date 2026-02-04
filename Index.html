@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luxury Fashion</title>
+
+  <link rel="stylesheet" href="Beige-style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<script>command:workbench.action.files.openFolder
+document.addEventListener("DOMContentLoaded", () => {
+  const elements = document.querySelectorAll(
+    ".navbar, .hero-content, .preview, .product-card, .about, footer"
+  );
+
+  elements.forEach(el => el.classList.add("reveal"));
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+      } else {
+        entry.target.classList.remove("active");
+      }
+    });
+  }, { threshold: 0.15 });
+
+  elements.forEach(el => observer.observe(el));
+});
+</script>
+
+<body>
+
+<!-- NAVIGATION -->
+<header class="navbar">
+  <div class="logo">LUXURIA</div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#preview">Entdecken</a>
+    <a href="#shop">Shop</a>
+    <a href="#about">Über uns</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-content fade-in">
+    <h1>Timeless Elegance</h1>
+    <p>Luxury Redefined</p>
+    <a href="#shop" class="btn">Entdecken</a>
+  </div>
+</section>
+
+<!-- PREVIEW -->
+<section class="preview" id="preview">
+  <div class="preview-card slide-up">
+    <img src="model1.jpg">
+    <span>Evening Wear</span>
+  </div>
+
+  <div class="preview-card slide-up">
+    <img src="model2.jpg">
+    <span>Signature Dresses</span>
+  </div>
+
+  <div class="preview-card slide-up">
+    <img src="model3.jpg">
+    <span>Haute Couture</span>
+  </div>
+</section>
+
+<!-- SHOP -->
+<section class="shop" id="shop">
+  <h2 class="section-title">Unsere Kollektion</h2>
+
+  <div class="products">
+    <div class="product-card">
+      <img src="dress1.jpg">
+      <h3>Silk Evening Dress</h3>
+      <p>€890</p>
+      <button>Kaufen</button>
+    </div>
+
+    <div class="product-card">
+      <img src="dress2.jpg">
+      <h3>Champagne Gown</h3>
+      <p>€1.290</p>
+      <button>Kaufen</button>
+    </div>
+
+    <div class="product-card">
+      <img src="dress3.jpg">
+      <h3>Minimal Luxe Dress</h3>
+      <p>€740</p>
+      <button>Kaufen</button>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <h2>Luxury Crafted with Passion</h2>
+  <p>
+    Unsere Designs stehen für zeitlose Eleganz, exklusive Stoffe
+    und höchste Schneiderkunst.
+  </p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  © 2026 LUXURIA – All Rights Reserved
+</footer>
+<!-- EIGENE ANIMATION -->
+.fade-in {
+  animation: fade 1.5s ease; }
+
+</body>
+<style>
+/* ===== CLEAN REVEAL ANIMATIONS ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+  
+
+}
+</style>
+
+<script>
+/* ===== SCROLL REVEAL LOGIC ===== */
+document.addEventListener("DOMContentLoaded", () => {
+  const elements = document.querySelectorAll(
+    ".navbar, .hero-content, .preview, .product-card, .about, footer"
+  );
+
+  elements.forEach(el => el.classList.add("reveal"));
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  elements.forEach(el => observer.observe(el));
+});
+
+
+</script>
+
+</html>
